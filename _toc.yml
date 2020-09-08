@@ -1,0 +1,39 @@
+- file: intro
+
+- part: Termos utilizados
+  chapters:
+  - file: termos
+    title: Visão geral
+
+- part: Retaguarda
+  chapters:
+  - file: retaguarda/overview
+    title: Visão geral
+  - file: retaguarda/configurar/overview
+    expand_sections: true
+    sections:
+      - file: retaguarda/configurar/integracoes
+  - file: retaguarda/shops
+  - file: retaguarda/users
+  - file: retaguarda/products
+  - file: retaguarda/cards
+  - file: retaguarda/stock
+  - file: retaguarda/tef
+  - file: retaguarda/sales
+  - file: retaguarda/reports
+    
+- part: PDV
+  chapters:
+  - file: pdv/overview
+    title: Visão geral
+    
+
+- part: Melhorias
+  chapters:
+  - file: melhorias
+    title: Visão geral
+
+- part: Bugs
+  chapters:
+  - file: bugs
+    title: Visão geral
