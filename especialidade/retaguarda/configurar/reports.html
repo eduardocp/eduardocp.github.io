@@ -1,0 +1,695 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Gerar relatórios &#8212; Especialidade MultiVendas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Visão geral" href="../../pdv/overview.html" />
+    <link rel="prev" title="Gerenciar vendas" href="sales.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Especialidade MultiVendas</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Termos utilizados
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../termos.html">
+   Visão geral
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Retaguarda
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Visão geral
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="overview.html">
+   Configurar o MultiVendas
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="integracoes.html">
+     Configurar Integrações
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="shops.html">
+     Gerenciar as Lojas e suas dependentes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="users.html">
+     Gerenciar usuários e grupos de usuários
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="products.html">
+     Gerenciar produtos
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cards.html">
+     Gerenciar cartões de consumo
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="stock.html">
+     Gerenciar estoque
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tef.html">
+     Consultar transações TEF
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sales.html">
+     Gerenciar vendas
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Gerar relatórios
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  PDV
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../pdv/overview.html">
+   Visão geral
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Melhorias
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../melhorias.html">
+   Visão geral
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Bugs
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../bugs.html">
+   Visão geral
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/retaguarda/configurar/reports.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#produtos">
+   Produtos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#relatorio-de-impressoras-de-pedidos">
+     Relatório de impressoras de pedidos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#codigo-de-barras-para-produtos-identificaveis">
+     Código de barras para produtos identificáveis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#relatorio-de-codigo-de-barras-por-quantidade">
+     Relatório de código de barras por quantidade
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cartoes-de-consumo">
+   Cartões de consumo
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#saldo-de-cartao-de-consumo">
+     Saldo de cartão de consumo
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#por-tipo">
+       Por tipo
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dayuser-por-periodo-de-ativacao">
+       DayUser por período de ativação
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extrato-de-cartao-de-consumo">
+     Extrato de cartão de consumo
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vendas-por-cartao-de-consumo">
+     Vendas por cartão de consumo
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cancelamento-de-consumo">
+     Cancelamento de consumo
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lotes-de-cartao-de-consumo">
+     Lotes de cartão de consumo
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#retencao-de-creditos-vencidos">
+     Retenção de créditos vencidos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estoque">
+   Estoque
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recebimento">
+     Recebimento
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#requisicoes">
+     Requisições
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tranferencias">
+     Tranferências
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transferencias-em-aberto">
+     Transferências em aberto
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ajuste-de-estoque">
+     Ajuste de estoque
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#movimentacao-de-estoque">
+     Movimentação de estoque
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ranking-de-fornecedores">
+     Ranking de fornecedores
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inventario-de-estoque">
+     Inventário de estoque
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tef">
+   TEF
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transacoes-tef">
+     Transações TEF
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extratos">
+     Extratos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vendas">
+   Vendas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#produtos-retornaveis">
+     Produtos retornáveis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#caixa">
+     Caixa
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#fechamento">
+       Fechamento
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#consolidado">
+       Consolidado
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#documentos-fiscais-eletronicos">
+     Documentos fiscais eletrônicos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#produtos-vendidos">
+     Produtos vendidos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#totais-vendidos">
+     Totais vendidos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#movimentos-por-ecf">
+     Movimentos por ECF
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tickets-de-estacionameto">
+     Tickets de estacionameto
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cancelamentos">
+     Cancelamentos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vouchers-vendidos-e-consumidos">
+     Vouchers vendidos e consumidos
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="gerar-relatorios">
+<h1>Gerar relatórios<a class="headerlink" href="#gerar-relatorios" title="Permalink to this headline">¶</a></h1>
+<p>Relatórios que podemos gerar no sistema:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#produtos">Produtos</a></p></li>
+<li><p><a class="reference external" href="#cartoes-de-consumo">Cartões de consumo</a></p></li>
+<li><p><a class="reference external" href="#estoque">Estoque</a></p></li>
+<li><p><a class="reference external" href="#tef">TEF</a></p></li>
+<li><p><a class="reference external" href="#vendas">Vendas</a></p></li>
+</ul>
+<div class="section" id="produtos">
+<h2>Produtos<a class="headerlink" href="#produtos" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="relatorio-de-impressoras-de-pedidos">
+<h3>Relatório de impressoras de pedidos<a class="headerlink" href="#relatorio-de-impressoras-de-pedidos" title="Permalink to this headline">¶</a></h3>
+<p>Exibe os produtos (com os detalhes da impressora utilizada) que foram impressos em cada local agrupado por loja.</p>
+</div>
+<div class="section" id="codigo-de-barras-para-produtos-identificaveis">
+<h3>Código de barras para produtos identificáveis<a class="headerlink" href="#codigo-de-barras-para-produtos-identificaveis" title="Permalink to this headline">¶</a></h3>
+<p>Emite um relatório de produtos identificáveis (que possuem número de série) utilizado para emissão de cartões ou etiquetas.</p>
+</div>
+<div class="section" id="relatorio-de-codigo-de-barras-por-quantidade">
+<h3>Relatório de código de barras por quantidade<a class="headerlink" href="#relatorio-de-codigo-de-barras-por-quantidade" title="Permalink to this headline">¶</a></h3>
+<p>Emite um relatório de produtos utilizado para impressão de etiquetas (pode ser sequencial, 2 ou 3 colunas).</p>
+</div>
+</div>
+<div class="section" id="cartoes-de-consumo">
+<h2>Cartões de consumo<a class="headerlink" href="#cartoes-de-consumo" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="saldo-de-cartao-de-consumo">
+<h3>Saldo de cartão de consumo<a class="headerlink" href="#saldo-de-cartao-de-consumo" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="por-tipo">
+<h4>Por tipo<a class="headerlink" href="#por-tipo" title="Permalink to this headline">¶</a></h4>
+<p>Exibe o saldo atual, limite de crédito e saldo disponível de cada tipo de cartão.</p>
+</div>
+<div class="section" id="dayuser-por-periodo-de-ativacao">
+<h4>DayUser por período de ativação<a class="headerlink" href="#dayuser-por-periodo-de-ativacao" title="Permalink to this headline">¶</a></h4>
+<p>Exibe o consumo, recarga, devolução, valor retido, limite de crédito, valor disponível em pré-pago e valor em aberto no pós-pago de cartões DayUser.</p>
+</div>
+</div>
+<div class="section" id="extrato-de-cartao-de-consumo">
+<h3>Extrato de cartão de consumo<a class="headerlink" href="#extrato-de-cartao-de-consumo" title="Permalink to this headline">¶</a></h3>
+<p>Exibe os consumos dos cartões.</p>
+<ul class="simple">
+<li><p>Simples: exibe somente os movimentos</p></li>
+<li><p>Detalhado: inclui informações dos itens vendidos em cada movimento</p></li>
+</ul>
+</div>
+<div class="section" id="vendas-por-cartao-de-consumo">
+<h3>Vendas por cartão de consumo<a class="headerlink" href="#vendas-por-cartao-de-consumo" title="Permalink to this headline">¶</a></h3>
+<p>Exibe o total vendido por cartão podendo exibir os dependentes e agrupar por loja.</p>
+</div>
+<div class="section" id="cancelamento-de-consumo">
+<h3>Cancelamento de consumo<a class="headerlink" href="#cancelamento-de-consumo" title="Permalink to this headline">¶</a></h3>
+<p>Exibe o total cancelado por cartão agrupado por loja.</p>
+</div>
+<div class="section" id="lotes-de-cartao-de-consumo">
+<h3>Lotes de cartão de consumo<a class="headerlink" href="#lotes-de-cartao-de-consumo" title="Permalink to this headline">¶</a></h3>
+<p>Exibe os lotes de catões liberados.</p>
+</div>
+<div class="section" id="retencao-de-creditos-vencidos">
+<h3>Retenção de créditos vencidos<a class="headerlink" href="#retencao-de-creditos-vencidos" title="Permalink to this headline">¶</a></h3>
+<p>Exibe os consolidado do total de cartões de valor retido.</p>
+</div>
+</div>
+<div class="section" id="estoque">
+<h2>Estoque<a class="headerlink" href="#estoque" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="recebimento">
+<h3>Recebimento<a class="headerlink" href="#recebimento" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Simples: exibe o total recebido por fonecedor</p></li>
+<li><p>Detalhado: inclui detalhes dos produtos recebidos</p></li>
+</ul>
+</div>
+<div class="section" id="requisicoes">
+<h3>Requisições<a class="headerlink" href="#requisicoes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Simples: exibe as requisições de estoque</p></li>
+<li><p>Detalhado: inclui informações dos valores envolidos na requisição</p></li>
+</ul>
+</div>
+<div class="section" id="tranferencias">
+<h3>Tranferências<a class="headerlink" href="#tranferencias" title="Permalink to this headline">¶</a></h3>
+<p>Exibe os produtos transferidos e já recebidos entre lojas.</p>
+</div>
+<div class="section" id="transferencias-em-aberto">
+<h3>Transferências em aberto<a class="headerlink" href="#transferencias-em-aberto" title="Permalink to this headline">¶</a></h3>
+<p>Exibe os produtos transferidos e ainda não recebidos entre lojas.</p>
+</div>
+<div class="section" id="ajuste-de-estoque">
+<h3>Ajuste de estoque<a class="headerlink" href="#ajuste-de-estoque" title="Permalink to this headline">¶</a></h3>
+<p>Exibe os ajustes feitos no estoque.</p>
+</div>
+<div class="section" id="movimentacao-de-estoque">
+<h3>Movimentação de estoque<a class="headerlink" href="#movimentacao-de-estoque" title="Permalink to this headline">¶</a></h3>
+<p>Exibe o histórico de movimentações feitas agrupadas por loja e produto (nessa ordem).</p>
+</div>
+<div class="section" id="ranking-de-fornecedores">
+<h3>Ranking de fornecedores<a class="headerlink" href="#ranking-de-fornecedores" title="Permalink to this headline">¶</a></h3>
+<p>Exibe o ranking de fornecedores de acordo com a média de cada classificação fornecida em cada recebimento de mercadoria.</p>
+</div>
+<div class="section" id="inventario-de-estoque">
+<h3>Inventário de estoque<a class="headerlink" href="#inventario-de-estoque" title="Permalink to this headline">¶</a></h3>
+<p>Exibe os inventários realizados.</p>
+</div>
+</div>
+<div class="section" id="tef">
+<h2>TEF<a class="headerlink" href="#tef" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="transacoes-tef">
+<h3>Transações TEF<a class="headerlink" href="#transacoes-tef" title="Permalink to this headline">¶</a></h3>
+<p>Exibe as transações realizadas agrupadas por tipo de transação, forma de pagamento, tipo de parcelamento e bandeira.</p>
+<ul class="simple">
+<li><p>Simples: exibe o consolidado</p></li>
+<li><p>Detalhado: inclui os detalhes das transações</p></li>
+</ul>
+</div>
+<div class="section" id="extratos">
+<h3>Extratos<a class="headerlink" href="#extratos" title="Permalink to this headline">¶</a></h3>
+<p>Os extratos fazem parte da integração Tivit/Edi.</p>
+</div>
+</div>
+<div class="section" id="vendas">
+<h2>Vendas<a class="headerlink" href="#vendas" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="produtos-retornaveis">
+<h3>Produtos retornáveis<a class="headerlink" href="#produtos-retornaveis" title="Permalink to this headline">¶</a></h3>
+<p>Exibe todos os produtos retornáveis que estão pendentes de devolução ou já foram devolvidos.</p>
+</div>
+<div class="section" id="caixa">
+<h3>Caixa<a class="headerlink" href="#caixa" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="fechamento">
+<h4>Fechamento<a class="headerlink" href="#fechamento" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Simples: exibe o consolidado dos valores de fechamento dos caixas</p></li>
+<li><p>Detalhado: inclui informações dos movimentos dos caixas</p></li>
+</ul>
+</div>
+<div class="section" id="consolidado">
+<h4>Consolidado<a class="headerlink" href="#consolidado" title="Permalink to this headline">¶</a></h4>
+<p>Exibe o consolidado dos valores dos caixas.</p>
+</div>
+</div>
+<div class="section" id="documentos-fiscais-eletronicos">
+<h3>Documentos fiscais eletrônicos<a class="headerlink" href="#documentos-fiscais-eletronicos" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Simples: exibe os documentos fiscais</p></li>
+<li><p>Detalhado: inclui informações dos produtos envolvidos na emissão</p></li>
+</ul>
+</div>
+<div class="section" id="produtos-vendidos">
+<h3>Produtos vendidos<a class="headerlink" href="#produtos-vendidos" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Simples: exibe somente informações da venda</p></li>
+<li><p>Detalhado: inclui informações sobre preço de custo e margem de lucro</p></li>
+</ul>
+</div>
+<div class="section" id="totais-vendidos">
+<h3>Totais vendidos<a class="headerlink" href="#totais-vendidos" title="Permalink to this headline">¶</a></h3>
+<p>Exibe os totais vendidos e média de venda por PDV</p>
+</div>
+<div class="section" id="movimentos-por-ecf">
+<h3>Movimentos por ECF<a class="headerlink" href="#movimentos-por-ecf" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Simples: exibe consolidados dos totalizadores, finalizadores e cancelamentos</p></li>
+<li><p>Detalhado: inclui informações dos cupons fiscais emitidos</p></li>
+</ul>
+</div>
+<div class="section" id="tickets-de-estacionameto">
+<h3>Tickets de estacionameto<a class="headerlink" href="#tickets-de-estacionameto" title="Permalink to this headline">¶</a></h3>
+<p>Exibe os tickets de estacionamentos que foram pagos.</p>
+</div>
+<div class="section" id="cancelamentos">
+<h3>Cancelamentos<a class="headerlink" href="#cancelamentos" title="Permalink to this headline">¶</a></h3>
+<p>Exibe as vendas, itens de venda, itens de comanda e movimentos de consumos cancelados.</p>
+</div>
+<div class="section" id="vouchers-vendidos-e-consumidos">
+<h3>Vouchers vendidos e consumidos<a class="headerlink" href="#vouchers-vendidos-e-consumidos" title="Permalink to this headline">¶</a></h3>
+<p>Exibe os vouchers vendidos.</p>
+<ul class="simple">
+<li><p>Simples: exibe somente o consolidado</p></li>
+<li><p>Detalhado: inclui informações de vouchers em aberto, cosumidos e expirados</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./retaguarda/configurar"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="sales.html" title="previous page">Gerenciar vendas</a>
+    <a class='right-next' id="next-link" href="../../pdv/overview.html" title="next page">Visão geral</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Eduardo Carísio<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

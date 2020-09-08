@@ -1,0 +1,509 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Configurar Integrações &#8212; Especialidade MultiVendas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Gerenciar as Lojas e suas dependentes" href="../shops.html" />
+    <link rel="prev" title="Configurar o MultiVendas" href="overview.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Especialidade MultiVendas</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Termos utilizados
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../termos.html">
+   Visão geral
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Retaguarda
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../overview.html">
+   Visão geral
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="overview.html">
+   Configurar o MultiVendas
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Configurar Integrações
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../shops.html">
+   Gerenciar as Lojas e suas dependentes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../users.html">
+   Gerenciar usuários e grupos de usuários
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../products.html">
+   Gerenciar produtos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cards.html">
+   Gerenciar cartões de consumo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../stock.html">
+   Gerenciar estoque
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tef.html">
+   Consultar transações TEF
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sales.html">
+   Gerenciar vendas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reports.html">
+   Gerar relatórios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  PDV
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../pdv/overview.html">
+   Visão geral
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Melhorias
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../melhorias.html">
+   Visão geral
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Bugs
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../bugs.html">
+   Visão geral
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/retaguarda/configurar/integracoes.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiclubes">
+   MultiClubes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#erp">
+   ERP
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#integracao-hotel">
+   Integração Hotel
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ows">
+     OWS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#onity">
+     Onity
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broker-fiscal">
+   Broker Fiscal
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estacionamento">
+   Estacionamento
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#paf">
+   PAF
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#micros-myvisitor">
+   Micros MyVisitor
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="configurar-integracoes">
+<h1>Configurar Integrações<a class="headerlink" href="#configurar-integracoes" title="Permalink to this headline">¶</a></h1>
+<p>O sistema conta com as integrações:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#multiclubes">MultiClubes</a></p></li>
+<li><p><a class="reference external" href="#erp">ERP</a></p></li>
+<li><p><a class="reference external" href="#integracao-hotel">Hotel</a></p></li>
+<li><p><a class="reference external" href="#ows">Ows</a></p></li>
+<li><p><a class="reference external" href="#onity">Onity</a></p></li>
+<li><p><a class="reference external" href="#broker-fiscal">Broker Fiscal</a></p></li>
+<li><p><a class="reference external" href="#estacionamento">Estacionamento</a></p></li>
+<li><p><a class="reference external" href="#paf">PAF</a></p></li>
+<li><p><a class="reference external" href="#micros-myvisitor">Micros MyVisitor</a></p></li>
+</ul>
+<div class="section" id="multiclubes">
+<h2>MultiClubes<a class="headerlink" href="#multiclubes" title="Permalink to this headline">¶</a></h2>
+<p>Habilitando as configurações de integração do MultiClubes <a class="footnote-reference brackets" href="#configmulticlubes" id="id1">1</a> podemos integrar os dados de consumo dos sócios.</p>
+<p>Para isso, precisamos:</p>
+<ul class="simple">
+<li><p>Configurar o nome da base do MultiClubes e o endereço do serviço OnlineServices.</p></li>
+<li><p>Definir a loja padrão que será usada para criação de pré-vendas no acesso dos dispositivos de acesso.</p></li>
+<li><p>Configurar a importação de consumo dos clientes do MultiClubes. Todos consumo em aberto dos clientes serão atrelados à cobrança gerada no período em questão. Após esse vínculo, esses consumos não poderão mais ser pagos nos PDV’s.</p></li>
+</ul>
+</div>
+<div class="section" id="erp">
+<h2>ERP<a class="headerlink" href="#erp" title="Permalink to this headline">¶</a></h2>
+<p>Habilitando as configurações de integração do ERP <a class="footnote-reference brackets" href="#configerp" id="id2">2</a> o sistema passará a gerar os dados consolidados necessários para a integração ERP.</p>
+<p>Para isso, precisamos:</p>
+<ul class="simple">
+<li><p>Configurar as associações de categorias, centros de custos, formas de pagamentos, etc, utilizados no ERP em questão.</p></li>
+</ul>
+<div class="admonition-nota admonition">
+<p class="admonition-title">Nota</p>
+<p>Essa integração depende da <a class="reference external" href="#multiclubes">integração do MultiClubes</a></p>
+</div>
+</div>
+<div class="section" id="integracao-hotel">
+<h2>Integração Hotel<a class="headerlink" href="#integracao-hotel" title="Permalink to this headline">¶</a></h2>
+<p>Habilitando as configurações de integração para hotel <a class="footnote-reference brackets" href="#confighotel" id="id3">3</a> permite que serviços externos se comunique com o MultiVendas enviando informações sobre o hóspede, permitindo que o mesmo utilize os recursos de identificação do hotel (cartões, chaves ou n° do quarto) dentro do MultiVendas.</p>
+<p>Para habilitar a integração do hotel é preciso configurar:</p>
+<ul class="simple">
+<li><p>Emissão de documento fiscais.</p></li>
+<li><p>Impressão de ticket no checkout.</p></li>
+<li><p>Mensagens do ticket.</p></li>
+<li><p>Lojas que usam a integração do hotel.</p></li>
+</ul>
+<div class="admonition-nota admonition">
+<p class="admonition-title">Nota</p>
+<p>Essa integração depende da <a class="reference external" href="#multiclubes">integração do MultiClubes</a></p>
+</div>
+<div class="section" id="ows">
+<h3>OWS<a class="headerlink" href="#ows" title="Permalink to this headline">¶</a></h3>
+<p>Checkin
+Consulta o Oracle (OWS) e em seguida registra no multivenda</p>
+<p>O OWS é o sistema de hotelaria da Oracle.<br />
+Como eles não quiseram realizar a integração pelo lado deles, foi preciso realizar pelo nosso lado.<br />
+O MultiVendas PDV acaba sendo um middleware para a integração entre MultiVendas e OWS.<br />
+Basicamente nossa interface consulta o a api do OWS e utiliza a nossa api de hotel para registrar o hóspede encontrado.</p>
+<p>Habilitando as configurações de integração OWS <a class="footnote-reference brackets" href="#confighotelows" id="id4">4</a> nosso PDV poderá consulta a api do OWS para registrar o hóspede encontrado utilizando a nossa api de hotel.</p>
+<p>Para isso, precisamos:</p>
+<ul class="simple">
+<li><p>Configurar o acesso ao serviço</p></li>
+<li><p>Configurar o tipo de pagamento</p></li>
+<li><p>Configurar o tipo de ativação</p></li>
+<li><p>Configurar a sequência de hóspedes</p></li>
+<li><p>Configurar os tipos de clientes</p></li>
+<li><p>Configurar os vouchers</p></li>
+</ul>
+<div class="admonition-nota admonition">
+<p class="admonition-title">Nota</p>
+<p>Essa integração depende da <a class="reference external" href="#integracao-hotel">integração para Hotel</a><br />
+Essa integração depende da integração do Micros MyVistor</p>
+</div>
+</div>
+<div class="section" id="onity">
+<h3>Onity<a class="headerlink" href="#onity" title="Permalink to this headline">¶</a></h3>
+<p>É um sistema de fechaduras funcionando como uma extensão do hotel.</p>
+<p>Habilitando as configurações de integração Onity <a class="footnote-reference brackets" href="#confighotelonity" id="id5">5</a> operações que envolvam ativação poderão integrar com o sistema de fechadura do hotel permitindo gravar a chave e cartão de consumo juntos.</p>
+<p>Para isso, precisamos:</p>
+<ul class="simple">
+<li><p>Fornecer a URL do endereço do serviço</p></li>
+<li><p>Configurar o identificador e encoder para cada loja que irá integrar</p></li>
+</ul>
+<div class="admonition-nota admonition">
+<p class="admonition-title">Nota</p>
+<p>Essa integração depende da <a class="reference external" href="#integracao-hotel">integração para Hotel</a><br />
+Essa integração depende da <a class="reference external" href="#ows">integração do OWS</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="broker-fiscal">
+<h2>Broker Fiscal<a class="headerlink" href="#broker-fiscal" title="Permalink to this headline">¶</a></h2>
+<p>Habilitando as configurações de integração com o Broker Fiscar <a class="footnote-reference brackets" href="#configbrokerfiscal" id="id6">6</a> os documentos fiscais emitidos serão integrados com o serviço escolhido.</p>
+<p>Para isso, precisamos:</p>
+<ul class="simple">
+<li><p>Escolher o serviço (atualmente só existe Complience)</p></li>
+<li><p>Fornecer a URL do endereço do serviço</p></li>
+<li><p>Configurar o identificador e chave para cada loja que irá integrar</p></li>
+</ul>
+</div>
+<div class="section" id="estacionamento">
+<h2>Estacionamento<a class="headerlink" href="#estacionamento" title="Permalink to this headline">¶</a></h2>
+<p>Habilitando as configurações de integração com o Estacionamento <a class="footnote-reference brackets" href="#configestacionamento" id="id7">7</a> permite o PDV consultar tickets em uma base específica e realizar o pagamento desses tickets.???? (verificar pbi 29613? e com o otavio para entender melhor o funcionamento)</p>
+</div>
+<div class="section" id="paf">
+<h2>PAF<a class="headerlink" href="#paf" title="Permalink to this headline">¶</a></h2>
+<p>Habilitando as configurações de integração com o PAF <a class="footnote-reference brackets" href="#configpaf" id="id8">8</a> o PDV pode gerar o arquivos necessários para o PAF ECF.</p>
+</div>
+<div class="section" id="micros-myvisitor">
+<h2>Micros MyVisitor<a class="headerlink" href="#micros-myvisitor" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-nota admonition">
+<p class="admonition-title">Nota</p>
+<p>Essa integração não é mais utilizada (OWS entrou no lugar).<br />
+Só não foi removida pois o trabalho para remover e retestar tudo, não compensa.</p>
+</div>
+<p>Habilitando as configurações de integração com o Micros MyVisitor <a class="footnote-reference brackets" href="#configmicros" id="id9">9</a> o sistema passa a consultar o saldo e consumos realizados no cartão através do Micros MyVisitor.</p>
+<hr class="docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="configmulticlubes"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Sistema -&gt; Configurações do sistema -&gt; Aba MultiClubes</p>
+</dd>
+<dt class="label" id="configerp"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Sistema -&gt; Configurações do sistema -&gt; Aba ERP</p>
+</dd>
+<dt class="label" id="confighotel"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>Sistema -&gt; Configurações do sistema -&gt; Aba Integração Hotel</p>
+</dd>
+<dt class="label" id="confighotelows"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>Sistema -&gt; Configurações do sistema -&gt; Aba Ows</p>
+</dd>
+<dt class="label" id="confighotelonity"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dd><p>Sistema -&gt; Configurações do sistema -&gt; Aba Onity</p>
+</dd>
+<dt class="label" id="configbrokerfiscal"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
+<dd><p>Sistema -&gt; Configurações do sistema -&gt; Aba Broker Fiscal</p>
+</dd>
+<dt class="label" id="configestacionamento"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
+<dd><p>Sistema -&gt; Configurações do sistema -&gt; Aba Estacionamento</p>
+</dd>
+<dt class="label" id="configpaf"><span class="brackets"><a class="fn-backref" href="#id8">8</a></span></dt>
+<dd><p>Sistema -&gt; Configurações do sistema -&gt; Aba Estacionamento</p>
+</dd>
+<dt class="label" id="configmicros"><span class="brackets"><a class="fn-backref" href="#id9">9</a></span></dt>
+<dd><p>Sistema -&gt; Configurações do sistema -&gt; Aba Micros MyVisitor</p>
+</dd>
+</dl>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./retaguarda/configurar"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="overview.html" title="previous page">Configurar o MultiVendas</a>
+    <a class='right-next' id="next-link" href="../shops.html" title="next page">Gerenciar as Lojas e suas dependentes</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Eduardo Carísio<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
