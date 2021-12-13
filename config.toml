@@ -5,10 +5,15 @@ title = "Eduardo Carísio"
 theme = "LoveIt"
 
 [params]
-  # LoveIt theme version
   version = "0.2.X"
+  description = "This is My New Hugo Site"
+  keywords = ["Theme", "Hugo"]
+  defaultTheme = "auto"
+  gitRepo = ""
+  fingerprint = ""
+  dateFormat = "2006-01-02"
+  images = ["/logo.png"]
 
-  # LoveIt NEW | 0.2.0 Search config
   [params.search]
     enable = true
     type = "algolia"
@@ -53,7 +58,21 @@ theme = "LoveIt"
   [markup.highlight]
     noClasses = false
 
+# Author config
+[author]
+  name = "Eduardo Carísio"
+  email = "eduardo_carisio@hotmail.com"
+  link = "http://eduardocp.github.io/"
+
+# Sitemap config
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+# Options to make hugo output files
 [outputs]
+  # LoveIt CHANGED | 0.2.0
   home = ["HTML", "RSS", "JSON"]
   page = ["HTML"]
   section = ["HTML", "RSS"]
