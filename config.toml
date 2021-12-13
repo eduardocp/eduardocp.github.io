@@ -8,6 +8,21 @@ theme = "LoveIt"
   # LoveIt theme version
   version = "0.2.X"
 
+  # LoveIt NEW | 0.2.0 Search config
+  [params.search]
+    enable = true
+    type = "algolia"
+    contentLength = 4000
+    placeholder = ""
+    maxResultLength = 10
+    snippetLength = 30
+    highlightTag = "em"
+    absoluteURL = false
+    [params.search.algolia]
+      index = "eduardocp.github.io"
+      appID = "295OASPIW7"
+      searchKey = "02ce428eacd4cb4abc68b2b7d6348ea5"
+
 [menu]
   [[menu.main]]
     identifier = "posts"
@@ -37,3 +52,10 @@ theme = "LoveIt"
 [markup]
   [markup.highlight]
     noClasses = false
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML", "MarkDown"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  taxonomyTerm = ["HTML"]
