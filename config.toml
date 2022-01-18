@@ -1,13 +1,13 @@
 baseURL = "http://eduardocp.github.io/"
-defaultContentLanguage = "en"
-languageCode = "en"
+defaultContentLanguage = "pt-br"
+languageCode = "pt-BR"
 title = "Eduardo Carísio"
 theme = "LoveIt"
 
 [params]
   version = "0.2.X"
-  description = "This is My New Hugo Site"
-  keywords = ["Theme", "Hugo"]
+  description = "Blog do Eduardo Carísio"
+  keywords = ["blog", "programação", "c#", ".net", "eduardo", "carisio", "programador", "sql", "api", "sql-server"]
   defaultTheme = "auto"
   gitRepo = ""
   fingerprint = ""
@@ -28,31 +28,92 @@ theme = "LoveIt"
       appID = "295OASPIW7"
       searchKey = "02ce428eacd4cb4abc68b2b7d6348ea5"
 
-[menu]
-  [[menu.main]]
-    identifier = "posts"
-    pre = ""
-    post = ""
-    name = "Posts"
-    url = "/posts/"
-    title = ""
+[languages]
+  [languages.pt-br]
     weight = 1
-  [[menu.main]]
-    identifier = "tags"
-    pre = ""
-    post = ""
-    name = "Tags"
-    url = "/tags/"
-    title = ""
+    title = "Eduardo Carísio"
+    languageCode = "pt-br"
+    languageName = "Português"
+	dateFormat = "02/01/2006"
+    [[languages.pt-br.menu.main]]
+      identifier = "posts"
+      pre = ""
+      post = ""
+      name = "Posts"
+      url = "/posts/"
+      title = ""
+      weight = 1
+    [[languages.pt-br.menu.main]]
+      identifier = "tags"
+      pre = ""
+      post = ""
+      name = "Tags"
+      url = "/tags/"
+      title = ""
+      weight = 2
+    [[languages.pt-br.menu.main]]
+      identifier = "categories"
+      pre = ""
+      post = ""
+      name = "Categorias"
+      url = "/categories/"
+      title = ""
+      weight = 3
+  [languages.en]
     weight = 2
-  [[menu.main]]
-    identifier = "categories"
-    pre = ""
-    post = ""
-    name = "Categories"
-    url = "/categories/"
-    title = ""
-    weight = 3
+    title = "Eduardo Carísio"
+    languageCode = "en"
+    languageName = "English"
+    [[languages.en.menu.main]]
+      identifier = "posts"
+      pre = ""
+      post = ""
+      name = "Posts"
+      url = "/posts/"
+      title = ""
+      weight = 1
+    [[languages.en.menu.main]]
+      identifier = "tags"
+      pre = ""
+      post = ""
+      name = "Tags"
+      url = "/tags/"
+      title = ""
+      weight = 2
+    [[languages.en.menu.main]]
+      identifier = "categories"
+      pre = ""
+      post = ""
+      name = "Categories"
+      url = "/categories/"
+      title = ""
+      weight = 3
+
+# [menu]
+#   [[menu.main]]
+#     identifier = "posts"
+#     pre = ""
+#     post = ""
+#     name = "Posts"
+#     url = "/posts/"
+#     title = ""
+#     weight = 1
+#   [[menu.main]]
+#     identifier = "tags"
+#     pre = ""
+#     post = ""
+#     name = "Tags"
+#     url = "/tags/"
+#     title = ""
+#     weight = 2
+#   [[menu.main]]
+#     identifier = "categories"
+#     pre = ""
+#     post = ""
+#     name = "Categories"
+#     url = "/categories/"
+#     title = ""
+#     weight = 3
 
 [markup]
   [markup.highlight]
