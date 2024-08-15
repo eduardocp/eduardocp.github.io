@@ -108,49 +108,51 @@ This is the premiss to the other files.
 
 I will not explain the file below, but fell free to text 🙂
 
-{% details QueryableStringInvariantContainsHandler %}
-{% highlight csharp linenos %}
-public class QueryableStringInvariantContainsHandler : QueryableStringOperationHandler
-{
-    public QueryableStringInvariantContainsHandler(InputParser inputParser)
-           : base(inputParser)
-    { }
-
-    private static readonly MethodInfo _toLower = typeof(string)
-        .GetMethods()
-        .Single(x => x.Name == nameof(string.ToLower) && x.GetParameters().Length == 0);
-
-    protected override int Operation => DefaultFilterOperations.Contains;
-
-    public override Expression HandleOperation(QueryableFilterContext context,
-                                               IFilterOperationField field,
-                                               IValueNode value,
-                                               object parsedValue)
+<details>
+    <summary style="font-size:1.125rem;font-family:var(--header-font);font-weight:800;line-height:1.1;margin-top:1.25rem;margin-bottom:.5rem;">QueryableStringInvariantContainsHandler</summary>
+    {% highlight csharp linenos %}
+    public class QueryableStringInvariantContainsHandler : QueryableStringOperationHandler
     {
-        Expression property = context.GetInstance();
+        public QueryableStringInvariantContainsHandler(InputParser inputParser)
+            : base(inputParser)
+        { }
 
-        if (parsedValue is string str)
+        private static readonly MethodInfo _toLower = typeof(string)
+            .GetMethods()
+            .Single(x => x.Name == nameof(string.ToLower) && x.GetParameters().Length == 0);
+
+        protected override int Operation => DefaultFilterOperations.Contains;
+
+        public override Expression HandleOperation(QueryableFilterContext context,
+                                                IFilterOperationField field,
+                                                IValueNode value,
+                                                object parsedValue)
         {
-            return Expression.Call(typeof(NpgsqlDbFunctionsExtensions),
-                                   nameof(NpgsqlDbFunctionsExtensions.ILike),
-                                   Type.EmptyTypes,
-                                   Expression.Property(null, typeof(EF), nameof(EF.Functions)),
-                                   property,
-                                   Expression.Constant($"%{str}%"));
-        }
+            Expression property = context.GetInstance();
 
-        if (parsedValue == null && field.RuntimeType?.Source == typeof(string))
-        {
-            return Expression.Equal(Expression.Call(property, _toLower), Expression.Constant(null));
-        }
+            if (parsedValue is string str)
+            {
+                return Expression.Call(typeof(NpgsqlDbFunctionsExtensions),
+                                    nameof(NpgsqlDbFunctionsExtensions.ILike),
+                                    Type.EmptyTypes,
+                                    Expression.Property(null, typeof(EF), nameof(EF.Functions)),
+                                    property,
+                                    Expression.Constant($"%{str}%"));
+            }
 
-        throw new InvalidOperationException();
+            if (parsedValue == null && field.RuntimeType?.Source == typeof(string))
+            {
+                return Expression.Equal(Expression.Call(property, _toLower), Expression.Constant(null));
+            }
+
+            throw new InvalidOperationException();
+        }
     }
-}
-{% endhighlight %}
-{% enddetails %}
+    {% endhighlight %}
+</details>
 
-{% details QueryableStringInvariantEqualsHandler %}
+<details>
+    <summary style="font-size:1.125rem;font-family:var(--header-font);font-weight:800;line-height:1.1;margin-top:1.25rem;margin-bottom:.5rem;">QueryableStringInvariantEqualsHandler</summary>
 {% highlight csharp linenos %}
 public class QueryableStringInvariantEqualsHandler : QueryableStringOperationHandler
 {
@@ -185,9 +187,10 @@ public class QueryableStringInvariantEqualsHandler : QueryableStringOperationHan
     }
 }
 {% endhighlight %}
-{% enddetails %}
+</details>
 
-{% details QueryableStringInvariantInHandler %}
+<details>
+    <summary style="font-size:1.125rem;font-family:var(--header-font);font-weight:800;line-height:1.1;margin-top:1.25rem;margin-bottom:.5rem;">QueryableStringInvariantInHandler</summary>
 {% highlight csharp linenos %}
 public class QueryableStringInvariantInHandler : QueryableStringOperationHandler
 {
@@ -223,9 +226,10 @@ public class QueryableStringInvariantInHandler : QueryableStringOperationHandler
     }
 }
 {% endhighlight %}
-{% enddetails %}
+</details>
 
-{% details QueryableStringInvariantNotContainsHandler %}
+<details>
+    <summary style="font-size:1.125rem;font-family:var(--header-font);font-weight:800;line-height:1.1;margin-top:1.25rem;margin-bottom:.5rem;">QueryableStringInvariantNotContainsHandler</summary>
 {% highlight csharp linenos %}
 public class QueryableStringInvariantNotContainsHandler : QueryableStringOperationHandler
 {
@@ -265,9 +269,10 @@ public class QueryableStringInvariantNotContainsHandler : QueryableStringOperati
     }
 }
 {% endhighlight %}
-{% enddetails %}
+</details>
 
-{% details QueryableStringInvariantNotEqualsHandler %}
+<details>
+    <summary style="font-size:1.125rem;font-family:var(--header-font);font-weight:800;line-height:1.1;margin-top:1.25rem;margin-bottom:.5rem;">QueryableStringInvariantNotEqualsHandler</summary>
 {% highlight csharp linenos %}
 public class QueryableStringInvariantNotEqualsHandler : QueryableStringOperationHandler
 {
@@ -302,9 +307,10 @@ public class QueryableStringInvariantNotEqualsHandler : QueryableStringOperation
     }
 }
 {% endhighlight %}
-{% enddetails %}
+</details>
 
-{% details QueryableStringInvariantNotInHandler %}
+<details>
+    <summary style="font-size:1.125rem;font-family:var(--header-font);font-weight:800;line-height:1.1;margin-top:1.25rem;margin-bottom:.5rem;">QueryableStringInvariantNotInHandler</summary>
 {% highlight csharp linenos %}
 public class QueryableStringInvariantNotInHandler : QueryableStringOperationHandler
 {
@@ -340,7 +346,7 @@ public class QueryableStringInvariantNotInHandler : QueryableStringOperationHand
     }
 }
 {% endhighlight %}
-{% enddetails %}
+</details>
 
 After created this files, don't forget to register this filters:
 
