@@ -297,3 +297,7 @@ resource "azurerm_app_service" "app" {
 ## Conclusion
 
 By following these steps, you've automated the deployment of your Azure infrastructure using Terraform, integrated Hot Chocolate for GraphQL in your .NET project, and set up comprehensive observability with Azure Monitor and OpenTelemetry.
+
+## Code
+
+<a href="https://github.com/eduardocp/HotChocolateObservabilityTerraform" target="_blank">https://github.com/eduardocp/HotChocolateObservabilityTerraform</a>
