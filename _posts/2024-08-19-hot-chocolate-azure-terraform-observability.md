@@ -9,7 +9,6 @@ gh-repo: eduardocp/eduardocp.github.io
 gh-badge: [star, fork, follow]
 tags: [graphql, dotnet, hot chocolate, c#, terraform, azure, open telemetry, observability]
 comments: true
-mathjax: true
 author: Eduardo Carísio
 ---
 
@@ -26,38 +25,64 @@ Before you start, ensure you have the following:
 
 ## Step 1: Define the Azure Infrastructure with Terraform
 
-### 1.1 Create the Terraform Configuration File
+### 1.1 Create a New ASP.NET Core Project
+<span> </span>
+```bash
+dotnet new webapi -n HotChocolateObservabilityTerraform -controllers
+cd HotChocolateObservabilityTerraform
+```
 
-Create a directory for your Terraform files and add a `main.tf` file with the following content:
+### 1.2 Create the Terraform Configuration File
+
+Create a directory for your Terraform files and add a `providers.tf` file with the following content:
 
 ```hcl
-provider "azurerm" {
-  features = {}
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~>3.0"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = "~>3.0"
+    }
+  }
 }
 
+provider "azurerm" {
+  features {}
+}
+```
+
+And add a `main.tf` file with the following content:
+
+```hcl
 resource "azurerm_resource_group" "rg" {
   name     = "dotnet-hotchocolate-rg"
   location = "West Europe"
 }
 
-resource "azurerm_app_service_plan" "asp" {
+resource "azurerm_service_plan" "asp" {
   name                = "dotnet-hotchocolate-asp"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
-  sku {
-    tier = "Basic"
-    size = "B1"
-  }
+  os_type             = "Linux"
+  sku_name            = "F1"
 }
 
-resource "azurerm_app_service" "app" {
+resource "azurerm_linux_web_app" "app" {
   name                = "dotnet-hotchocolate-app"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
-  app_service_plan_id = azurerm_app_service_plan.asp.id
+  service_plan_id     = azurerm_service_plan.asp.id
+  al
 
   site_config {
-    dotnet_framework_version = "v8.0"
+    always_on = false # Set to false because free tiers can't use always on
+    application_stack {
+        dotnet_version = "8.0"
+    }
   }
 
   app_settings = {
@@ -75,7 +100,7 @@ resource "azurerm_application_insights" "appinsights" {
 }
 ```
 
-### 1.2 Initialize and Apply the Configuration
+### 1.3 Initialize and Apply the Configuration
 
 To deploy the infrastructure:
 
@@ -97,7 +122,7 @@ Terraform will prompt you to confirm the changes. Type `yes` to deploy the infra
 
 ### 2.1 Install Hot Chocolate
 
-Install Hot Chocolate via NuGet in your .NET project:
+Back to the root folder and install Hot Chocolate via NuGet in your .NET project:
 
 ```bash
 dotnet add package HotChocolate.AspNetCore
@@ -108,11 +133,6 @@ dotnet add package HotChocolate.AspNetCore
 In your `Program.cs` (or `Startup.cs`), configure the GraphQL server:
 
 ```csharp
-using OpenTelemetry;
-using OpenTelemetry.Trace;
-using OpenTelemetry.Metrics;
-using OpenTelemetry.Logs;
-
 public class Program
 {
     public static void Main(string[] args)
@@ -126,11 +146,12 @@ public class Program
         var app = builder.Build();
 
         app.UseRouting();
-
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapGraphQL();
         });
+
+        app.Run();
     }
 }
 ```
@@ -203,11 +224,10 @@ public class CustomTelemetry
 Install the necessary OpenTelemetry packages:
 
 ```bash
-dotnet add package OpenTelemetry
-dotnet add package OpenTelemetry.Extensions.Hosting
+dotnet add package Azure.Monitor.OpenTelemetry.AspNetCore --version 1.3.0-beta.1
+dotnet add package HotChocolate.Diagnostics
 dotnet add package OpenTelemetry.Instrumentation.AspNetCore
 dotnet add package OpenTelemetry.Instrumentation.Http
-dotnet add package OpenTelemetry.Exporter.AzureMonitor
 ```
 
 ### 4.2 Configure OpenTelemetry
@@ -215,10 +235,11 @@ dotnet add package OpenTelemetry.Exporter.AzureMonitor
 In `Program.cs` or `Startup.cs`, configure OpenTelemetry:
 
 ```csharp
-using OpenTelemetry;
 using OpenTelemetry.Trace;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Logs;
+using OpenTelemetry.Resources;
+using Azure.Monitor.OpenTelemetry.AspNetCore;
 
 public class Program
 {
