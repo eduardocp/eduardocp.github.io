@@ -1,12 +1,15 @@
 ---
 layout: post
+permalink: /hot-chocolate-azure-terraform-observability
+redirect_from:
+  - /2024-08-19-hot-chocolate-azure-terraform-observability
 title: Automating Azure Infrastructure for a .NET Project with Terraform, OpenTelemetry, and Observability
 date: 2024-08-19 09:00:00
 cover-img: /assets/img/covers/2024-08-19-hot-chocolate-azure-terraform-observability.png
 thumbnail-img: /assets/img/covers/2024-08-19-hot-chocolate-azure-terraform-observability.png
 share-img: /assets/img/covers/2024-08-19-hot-chocolate-azure-terraform-observability.png
 gh-repo: eduardocp/eduardocp.github.io
-gh-badge: [star, fork, follow]
+gh-badge: [star, follow]
 tags: [graphql, dotnet, hot chocolate, c#, terraform, azure, open telemetry, observability]
 comments: true
 author: Eduardo Carísio
@@ -293,6 +296,10 @@ resource "azurerm_app_service" "app" {
   }
 }
 ```
+
+## Github Actions
+
+[Link](/deploy-terraform-github-actions)
 
 ## Conclusion
 
