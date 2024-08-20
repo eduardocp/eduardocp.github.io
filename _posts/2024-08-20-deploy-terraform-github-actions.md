@@ -25,37 +25,7 @@ Deploying a .NET project with Terraform in GitHub Actions is an effective way to
 
 ## Step 1: Set Up Terraform Configuration
 
-Terraform configuration files (typically `.tf` files) define the infrastructure resources you want to deploy in Azure. Below is a simple example of a Terraform configuration to deploy an Azure App Service.
-
-```hcl
-provider "azurerm" {
-  features = {}
-}
-
-resource "azurerm_resource_group" "rg" {
-  name     = "myResourceGroup"
-  location = "East US"
-}
-
-resource "azurerm_app_service_plan" "app_service_plan" {
-  name                = "myAppServicePlan"
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
-  sku {
-    tier = "Free"
-    size = "F1"
-  }
-}
-
-resource "azurerm_app_service" "app_service" {
-  name                = "myAppService"
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
-  app_service_plan_id = azurerm_app_service_plan.app_service_plan.id
-}
-```
-
-This configuration deploys an Azure App Service in a specified resource group and location.
+We already did this [here](/hot-chocolate-azure-terraform-observability) at [Step 1](/hot-chocolate-azure-terraform-observability#step-1-define-the-azure-infrastructure-with-terraform)
 
 ## Step 2: Create Azure Service Principal
 
@@ -90,8 +60,35 @@ on:
       - main
 
 jobs:
+  deploy_infra:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: {% raw %}${{ secrets.AZURE_CREDENTIALS }}{% endraw %}
+
+      - name: Initialize Terraform
+        run: terraform init
+
+      - name: Apply Terraform
+        run: terraform apply -auto-approve
+
+      - name: Get Publish Profile
+        run: |
+          echo "::set-output name=PUBLISH_PROFILE::$(az webapp deployment list-publishing-profiles -g 'dotnet-hotchocolate-rg' -n 'dotnet-hotchocolate-app' --xml)"
+        id: getPublishProfile
+
   build:
     runs-on: ubuntu-latest
+    needs: deploy_infra
     
     steps:
     - name: Checkout code
@@ -100,7 +97,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '7.x'
+        dotnet-version: '8.x'
 
     - name: Restore dependencies
       run: dotnet restore
@@ -130,26 +127,12 @@ jobs:
       with:
         name: dotnet-app
 
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v2
-
-    - name: Azure Login
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-    - name: Initialize Terraform
-      run: terraform init
-
-    - name: Apply Terraform
-      run: terraform apply -auto-approve
-
     - name: Deploy to Azure App Service
       uses: azure/webapps-deploy@v2
       with:
-        app-name: "myAppService"
+        app-name: "dotnet-hotchocolate-app"
         package: ./output
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        publish-profile: {% raw %}${{ steps.getPublishProfile.outputs.PUBLISH_PROFILE }}{% endraw %}
 ```
 
 ## Step 5: Deploy and Monitor
