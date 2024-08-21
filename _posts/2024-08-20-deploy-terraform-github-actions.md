@@ -47,7 +47,7 @@ Store the service principal credentials in your GitHub repository as secrets. Go
 - `AZURE_SUBSCRIPTION_ID`: Your Azure subscription ID.
 - `AZURE_TENANT_ID`: Your Azure tenant ID.
 
-## 3.1 Configure read/write permission to Action
+## 3.1 Configure read/write permission to Workflow
 
 Go to your repository on GitHub and navigate to **Settings > Code and automation > Actions > General**. At the end, on **Workflow permissions** section, check **Read and write permissions**.
 
