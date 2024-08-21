@@ -1,14 +1,14 @@
 ---
 layout: post
-permalink: /deploy-terraform-github-actions
-title: Deploy terraform and HotChocolate with GitHub Actions
+permalink: /deploy-azure-terraform-github-actions
+title: Deploy to Azure with terraform and HotChocolate using GitHub Actions
 date: 2024-08-19 09:00:00
 cover-img: /assets/img/covers/2024-08-19-hot-chocolate-azure-terraform-observability.png
 thumbnail-img: /assets/img/covers/2024-08-19-hot-chocolate-azure-terraform-observability.png
 share-img: /assets/img/covers/2024-08-19-hot-chocolate-azure-terraform-observability.png
 gh-repo: eduardocp/eduardocp.github.io
 gh-badge: [star, follow]
-tags: [graphql, dotnet, hot chocolate, c#, terraform, azure, open telemetry, observability]
+tags: [graphql, dotnet, hot chocolate, c#, terraform, azure, infrastructure, automation]
 comments: true
 author: Eduardo Carísio
 ---
