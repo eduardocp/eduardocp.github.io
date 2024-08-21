@@ -25,27 +25,31 @@ Deploying a .NET project with Terraform in GitHub Actions is an effective way to
 
 ## Step 1: Set Up Terraform Configuration
 
-We already did this [here](/hot-chocolate-azure-terraform-observability) at [Step 1](/hot-chocolate-azure-terraform-observability#step-1-define-the-azure-infrastructure-with-terraform)
+We will use the terraform files generated [here at Step 1](/hot-chocolate-azure-terraform-observability#step-1-define-the-azure-infrastructure-with-terraform)
 
 ## Step 2: Create Azure Service Principal
 
 To deploy resources in Azure using Terraform, you need to create a Service Principal with sufficient permissions. This can be done via the Azure CLI.
 
 ```bash
-az ad sp create-for-rbac --name "terraform-sp" --role Contributor \
-   --scopes /subscriptions/{subscription-id} \
-   --sdk-auth
+az ad sp create-for-rbac --name "terraform-sp" --role Contributor --scopes /subscriptions/{subscription-id} --sdk-auth
 ```
 
 This command returns a JSON object containing the credentials needed to authenticate Terraform in Azure. Save these credentials securely as they will be used in GitHub Actions.
 
 ## Step 3: Store Azure Credentials in GitHub Secrets
 
-Store the service principal credentials in your GitHub repository as secrets. Go to your repository on GitHub and navigate to **Settings > Secrets and variables > Actions**. Add the following secrets:
+## 3.1 Store Azure Credentials in GitHub Secrets
+
+Store the service principal credentials in your GitHub repository as secrets. Go to your repository on GitHub and navigate to **Settings > Secrets and variables > Actions**. Add the following **Repository secrets**:
 
 - `AZURE_CREDENTIALS`: The JSON output from the Service Principal creation step.
 - `AZURE_SUBSCRIPTION_ID`: Your Azure subscription ID.
 - `AZURE_TENANT_ID`: Your Azure tenant ID.
+
+## 3.1 Configure read/write permission to Action
+
+Go to your repository on GitHub and navigate to **Settings > Code and automation > Actions > General**. At the end, on **Workflow permissions** section, check **Read and write permissions**.
 
 ## Step 4: Set Up GitHub Actions Workflow
 
@@ -62,78 +66,73 @@ on:
 jobs:
   deploy_infra:
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-        
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: azure # Checkout only the azure directory
+
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v2
+        uses: hashicorp/setup-terraform@v3
 
       - name: Azure Login
-        uses: azure/login@v1
+        uses: azure/login@v2
         with:
           creds: {% raw %}${{ secrets.AZURE_CREDENTIALS }}{% endraw %}
 
       - name: Initialize Terraform
         run: terraform init
+        working-directory: azure
 
       - name: Apply Terraform
         run: terraform apply -auto-approve
+        working-directory: azure
 
-      - name: Get Publish Profile
+      - name: Commit state # Save the Terraform state to prevent errors and wrong changes in the future runnings. There are better ways to do this, but this is a simple way to do it.
         run: |
-          echo "::set-output name=PUBLISH_PROFILE::$(az webapp deployment list-publishing-profiles -g 'dotnet-hotchocolate-rg' -n 'dotnet-hotchocolate-app' --xml)"
+          git config --global user.name '<YourName>'
+          git config --global user.email '<YourEmail>'
+          git add azure/.terraform.lock.hcl
+          git add azure/terraform.tfstate
+          git commit -m "🏗️ Automatically Updated Terraform State. [skip ci]"
+          git push
+
+      - name: Get Publish Profile # Get the publish profile to deploy the app
+        run: |
+          echo "PUBLISH_PROFILE=$(az webapp deployment list-publishing-profiles -g 'dotnet-hotchocolate-rg' -n 'dotnet-hotchocolate-app' --xml)" >> $GITHUB_OUTPUT
         id: getPublishProfile
 
-  build:
+  deploy:
     runs-on: ubuntu-latest
     needs: deploy_infra
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '8.x'
 
-    - name: Restore dependencies
-      run: dotnet restore
-
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-
     - name: Publish
-      run: dotnet publish --configuration Release --output ./output
+      run: dotnet publish --configuration Release --property:PublishDir=./output
 
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v3
+    - name: Azure Login
+      uses: azure/login@v2
       with:
-        name: dotnet-app
-        path: ./output
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    
-    - name: Download Artifact
-      uses: actions/download-artifact@v3
-      with:
-        name: dotnet-app
+        creds: {% raw %}${{ secrets.AZURE_CREDENTIALS }}{% endraw %}
 
     - name: Deploy to Azure App Service
-      uses: azure/webapps-deploy@v2
+      uses: azure/webapps-deploy@v3
       with:
         app-name: "dotnet-hotchocolate-app"
         package: ./output
         publish-profile: {% raw %}${{ steps.getPublishProfile.outputs.PUBLISH_PROFILE }}{% endraw %}
 ```
+
+Pay attention to `<YourName>` and `<YourEmail>`. Replace with your information.
 
 ## Step 5: Deploy and Monitor
 
