@@ -143,3 +143,7 @@ Pay attention to `<YourName>` and `<YourEmail>`. Replace with your information.
 ## Conclusion
 
 By following these steps, you can successfully deploy a .NET project using Terraform in GitHub Actions. This setup ensures a robust and automated deployment pipeline, leveraging the power of infrastructure as code and continuous deployment.
+
+## Code
+
+<a href="https://github.com/eduardocp/HotChocolateObservabilityTerraform" target="_blank">https://github.com/eduardocp/HotChocolateObservabilityTerraform</a>
