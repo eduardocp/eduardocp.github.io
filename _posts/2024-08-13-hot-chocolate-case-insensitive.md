@@ -15,8 +15,6 @@ comments: true
 author: Eduardo Carísio
 ---
 
-## Introduction
-
 Providing case-insensitive query support in a Hot Chocolate GraphQL server enhances the search experience for users by allowing queries to match regardless of case. This guide covers how to implement case-insensitive queries, including creating a custom `QueryableStringOperationHandler`.
 
 ## Background

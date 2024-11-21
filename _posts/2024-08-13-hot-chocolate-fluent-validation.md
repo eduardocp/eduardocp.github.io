@@ -15,8 +15,6 @@ comments: true
 author: Eduardo Carísio
 ---
 
-## Introduction
-
 Hot Chocolate is a powerful .NET GraphQL server library that simplifies the creation of GraphQL APIs. Fluent Validation is a popular library for building strongly-typed validation rules in .NET applications. Combining these tools allows you to create robust and well-validated GraphQL APIs with a clean and maintainable codebase. This article will guide you through setting up and using Hot Chocolate with Fluent Validation in a C# application.
 
 ## Prerequisites

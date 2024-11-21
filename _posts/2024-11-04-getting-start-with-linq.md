@@ -12,7 +12,6 @@ comments: true
 author: Eduardo Carísio
 ---
 
-## Introduction
 Have you ever wanted to search, sort, or transform data in your C# applications without writing complex loops and conditions? That's exactly what LINQ (Language Integrated Query) helps you do! Think of LINQ as your Swiss Army knife for handling data in .NET - it's a powerful tool that makes working with data collections as easy as writing English sentences.
 
 ## Prerequisites

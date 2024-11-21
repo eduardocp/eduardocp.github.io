@@ -12,7 +12,6 @@ comments: true
 author: Eduardo Carísio
 ---
 
-## Introduction
 Have you ever wondered how modern .NET applications manage their components and services so efficiently? That's where Dependency Injection (DI) comes in! Think of DI as a way to make your code more like LEGO blocks - easily connectable, replaceable, and maintainable. In this guide, we'll break down this important concept into easy-to-understand pieces.
 
 ## What You'll Learn
